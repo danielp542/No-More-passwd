@@ -3,3 +3,108 @@
 @section('titulo')
     Registrete
 @endsection
+
+@section('contenido')
+<div class="md:flex md:justify-center md:gap-10 md:items-center p-5">
+    <div class="md:w-6/12 p-5">
+        <img src="{{ asset('img/registrar.jpg')}}" alt="imagenregistro usuarios">
+
+    </div>
+    <div class="md:w-4/12 bg-gray-100 p-6 rounded-lg shadow-xl">
+        <form action="/registro" method="POST">
+            @csrf
+            <div class="mb-5">
+                <label id="name" class="mb-2 block uppercase text-gray-100 font-bold">
+                    Nombre
+                </label>
+                <input 
+                id="name"
+                name="name"
+                type="text"
+                value="{{old('name')}}"
+                placeholder="tu nombre"
+                class=" border p-3 w-full rounded-lg @error('name') border-red-500 @enderror"/>
+                @error('name')
+                <p class=" bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}</p>
+                @enderror
+            </div>
+            <div class="mb-5">
+                <label id="username" class="mb-2 block uppercase text-gray-100 font-bold">
+                    usuario
+                </label>
+                <input 
+                id="username"
+                name="username"
+                type="text"
+                value="{{old('username')}}"
+                placeholder="tu usuario"
+                class=" border p-3 w-full rounded-lg @error('username') border-red-500 @enderror"/>
+                @error('username')
+                <p class=" bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}</p>
+                @enderror
+                
+            </div>
+            <div class="mb-5">
+                <label id="password" class="mb-2 block uppercase text-gray-100 font-bold">
+                    Contraseña
+                </label>
+                <input 
+                id="password"
+                name="password"
+                type="password"
+                value="{{old('password')}}"
+                placeholder="contraseña de reguistro"
+                class=" border p-3 w-full rounded-lg @error('password') border-red-500 @enderror"/>
+                @error('password')
+                <p class=" bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}</p>
+                @enderror
+            </div>
+            <div class="mb-5">
+                <label id="password_confirmation" class="mb-2 block uppercase text-gray-100 font-bold">
+                    repite la contraseña
+                </label>
+                <input 
+                id="password_confirmation"
+                name="password_confirmation"
+                type="password"
+                placeholder="repite tu contraseña"
+                class=" border p-3 w-full rounded-lg @error('password_confirmation') border-red-500 @enderror"/>
+                @error('password_confirmation')
+                <p class=" bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}</p>
+                @enderror
+            </div>
+            <div class="mb-5">
+                <label id="email" class="mb-2 block uppercase text-gray-100 font-bold">
+                    correo electronico
+                </label>
+                <input 
+                id="email"
+                name="email"
+                type="email"
+                value="{{old('email')}}"
+                placeholder="ingresa tu correo"
+                class=" border p-3 w-full rounded-lg @error('email') border-red-500 @enderror"/>
+                @error('email')
+                <p class=" bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
+                    {{$message}}</p>
+                @enderror
+            </div>
+            
+                <input 
+                type="submit"
+                value="crear cuenta"
+                class=" bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer
+                uppercase font-bold w-full p-3 text-white rounded-lg mt-5">
+
+            
+        </form>
+
+    </div>
+
+</div>
+
+@endsection

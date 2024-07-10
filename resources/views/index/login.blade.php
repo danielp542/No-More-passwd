@@ -1,9 +1,8 @@
 @extends('index/app')
 @section('titulo')
-    principla
+    login
 @endsection
 
 @section('contenido')
-<h2>aqui estoy </h2>
+<h2>aqui estoy dede el login </h2>
 @endsection
-
